@@ -16,6 +16,7 @@ from zope.schema.vocabulary import SimpleVocabulary
 verbs = SimpleVocabulary([
     SimpleTerm(value=u'like', title=_(u'Like')),
     SimpleTerm(value=u'recommend', title=_(u'Recommend')),
+    SimpleTerm(value=u'share', title=_(u'Share')),
 ])
 
 
@@ -27,7 +28,7 @@ class IFacebookSchema(Interface):
         description=_(
             u'help_verb_display',
             default=u"The verb to display in the facebook button. "
-                    u"Currently only 'like' and 'recommend' are "
+                    u"Currently only 'like', 'recommend' and 'share' are "
                     u"supported.",
         ),
         required=True,

@@ -33,7 +33,11 @@ class PluginView(BrowserView):
         self.language = get_language(context)
         self.sheet = getattr(pp, 'sc_social_likes_properties', None)
         if self.sheet:
-            self.typebutton = self.sheet.getProperty("typebutton", "")
+            if self.sheet.getProperty("show_my_counts", 0):
+                self.typebutton = None
+            else:
+                self.typebutton = 'none'
+            # self.typebutton = self.sheet.getProperty("typebutton", "")
             self.twittvia = self.sheet.getProperty("twittvia", "")
         self.urlnoscript = (
             u'http://twitter.com/home?status=' +

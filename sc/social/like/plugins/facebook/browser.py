@@ -45,6 +45,10 @@ class PluginView(BrowserView):
             self.fbapp_id = self.sheet.getProperty("fbapp_id", "")
             self.fbadmins = self.sheet.getProperty("fbadmins", "")
             self.button = self.typebutton
+            if self.fbaction == 'share':
+                self.fbclass = 'fb-share-button'
+            else:
+                self.fbclass = 'fb-like'
 
     def image_height(self):
         """ Return height to image
@@ -80,8 +84,12 @@ class PluginView(BrowserView):
     @property
     def typebutton(self):
         typebutton = self.sheet.getProperty("typebutton", "")
+        show_my_counts = self.sheet.getProperty("show_my_counts", 0)
         if typebutton == 'horizontal':
-            typebutton = 'button_count'
+            if show_my_counts:
+                typebutton = 'button_count'
+            else:
+                typebutton = 'button'
             self.width = '90px'
         else:
             typebutton = 'box_count'

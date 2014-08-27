@@ -10,10 +10,10 @@
   <meta property="og:image:height" tal:attributes="content view/image_height" />
   <meta property="og:image:width" tal:attributes="content view/image_width" />
   <meta property="og:image:type" tal:attributes="content view/image_type" />
-  </tal:image>  
+  </tal:image>
   <meta tal:condition="view/fbadmins" property="fb:admins" tal:attributes="content view/fbadmins" />
   <meta tal:condition="view/fbapp_id" property="fb:app_id" tal:attributes="content view/fbapp_id" />
   <script
-      tal:attributes="src string://connect.facebook.net/${view/language}/all.js#xfbml=1"
+      tal:attributes="src string://connect.facebook.net/${view/language}/sdk.js#xfbml=1&appId=${view/fbapp_id}&version=v2.0"
       src="//connect.facebook.net/en_US/all.js#xfbml=1"></script>
 </tal:fb>

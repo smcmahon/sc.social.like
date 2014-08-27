@@ -8,6 +8,7 @@
           <element value="File" />
       </property>
       <property name="typebutton" type="string" purge="False">horizontal</property>
+      <property name="show_my_counts" type="boolean" purge="False">1</property>
       <property name="twittvia" type="string" purge="False"></property>
       <property name="fbaction" type="string" purge="False"></property>
       <property name="fbadmins" type="string" purge="False"></property>

@@ -29,6 +29,10 @@ class PluginView(BrowserView):
         self.url = context.absolute_url()
         self.language = get_language(context)
         self.sheet = getattr(pp, 'sc_social_likes_properties', None)
+        if self.sheet.getProperty("show_my_counts", 0):
+            self.annotation = 'bubble'
+        else:
+            self.annotation = 'none'
 
     @property
     def typebutton(self):

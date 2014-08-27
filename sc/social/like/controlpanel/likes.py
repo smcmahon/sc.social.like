@@ -63,6 +63,16 @@ class IProvidersSchema(Interface):
         values=(_(u'horizontal'), _(u'vertical')),
     )
 
+    show_my_counts = schema.Bool(
+        title=_(u'Show counts?'),
+        description=_(
+            u'help_show_counts',
+            default=u"Should like/share counts be displayed?",
+        ),
+        required=True,
+        default=True,
+    )
+
 
 class BaseControlPanelAdapter(SchemaAdapterBase):
     """ Base control panel adapter """
@@ -81,6 +91,7 @@ class LikeControlPanelAdapter(BaseControlPanelAdapter):
     enabled_portal_types = PFP(IProvidersSchema['enabled_portal_types'])
     typebutton = PFP(IProvidersSchema['typebutton'])
     plugins_enabled = PFP(IProvidersSchema['plugins_enabled'])
+    show_my_counts = PFP(IProvidersSchema['show_my_counts'])
 
 
 class ProvidersControlPanel(ControlPanelForm):
